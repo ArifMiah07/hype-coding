@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year 2026! 🎆</title>
+    <title>New Year 2026 Celebration</title>
     <style>
         * {
             margin: 0;
@@ -43,7 +44,7 @@
             font-weight: 900;
             margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
-                         0 0 40px rgba(147, 51, 234, 0.5);
+                0 0 40px rgba(147, 51, 234, 0.5);
             animation: glow 2s ease-in-out infinite alternate;
             background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
             background-size: 300% 300%;
@@ -52,15 +53,52 @@
             animation: glow 2s ease-in-out infinite alternate, gradient 3s ease infinite;
         }
 
+        .time-value.days {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .time-value.hours {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .time-value.minutes {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .time-value.seconds {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); }
-            to { filter: drop-shadow(0 0 40px rgba(255, 107, 107, 0.9)); }
+            from {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+            }
+
+            to {
+                filter: drop-shadow(0 0 40px rgba(255, 107, 107, 0.9));
+            }
         }
 
         .countdown {
@@ -90,9 +128,6 @@
             font-size: 3.5em;
             font-weight: bold;
             display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .time-label {
@@ -111,7 +146,9 @@
         }
 
         @keyframes fadeIn {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         .instruction {
@@ -127,8 +164,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.05);
+            }
         }
 
         .celebration {
@@ -144,54 +190,67 @@
         }
 
         @keyframes celebrate {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
+
 <body>
     <canvas id="canvas"></canvas>
-    
+
     <div class="container">
-        <h1>🎆 2026 🎆</h1>
+        <h1>2026</h1>
         <div class="countdown" id="countdown">
             <div class="time-unit">
-                <span class="time-value" id="days">00</span>
+                <span class="time-value days" id="days">00</span>
                 <span class="time-label">Days</span>
             </div>
             <div class="time-unit">
-                <span class="time-value" id="hours">00</span>
+                <span class="time-value hours" id="hours">00</span>
                 <span class="time-label">Hours</span>
             </div>
             <div class="time-unit">
-                <span class="time-value" id="minutes">00</span>
+                <span class="time-value minutes" id="minutes">00</span>
                 <span class="time-label">Minutes</span>
             </div>
             <div class="time-unit">
-                <span class="time-value" id="seconds">00</span>
+                <span class="time-value seconds" id="seconds">00</span>
                 <span class="time-label">Seconds</span>
             </div>
         </div>
         <div class="message">
-            ✨ Last commit of 2025 ✨<br>
-            Happy New Year! 🎉
+            Last commit of 2025<br>
+            Happy New Year!
         </div>
     </div>
 
-    <div class="instruction">👆 Click anywhere for fireworks! 🎆</div>
-    <div class="celebration" id="celebration">🎊 HAPPY NEW YEAR! 🎊</div>
+    <div class="instruction">Click anywhere for fireworks!</div>
+    <div class="celebration" id="celebration">HAPPY NEW YEAR 2026!</div>
 
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            generateStars();
         });
 
         // Particle class for fireworks
@@ -260,13 +319,19 @@
         }
 
         let particles = [];
-        const stars = Array.from({ length: 200 }, () => new Star());
+        let stars = [];
         const colors = ['#ff6b6b', '#ffd700', '#4ecdc4', '#95e1d3', '#f38181', '#aa96da'];
+
+        function generateStars() {
+            stars = Array.from({ length: 200 }, () => new Star());
+        }
+
+        generateStars();
 
         function createFirework(x, y) {
             const particleCount = 60;
             const color = colors[Math.floor(Math.random() * colors.length)];
-            
+
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle(x, y, color));
             }
@@ -313,22 +378,24 @@
             const diff = newYear - now;
 
             if (diff <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                
-                // Show celebration
+                // Hide countdown, show permanent celebration
+                document.getElementById('countdown').style.display = 'none';
+                document.querySelector('h1').textContent = 'HAPPY NEW YEAR!';
+                document.querySelector('.message').innerHTML = 'Welcome to 2026!<br>Hope you had an amazing year!';
+
                 const celebration = document.getElementById('celebration');
                 celebration.style.display = 'block';
-                
-                // Massive fireworks display
-                for (let i = 0; i < 10; i++) {
-                    setTimeout(() => {
-                        createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.7);
-                    }, i * 200);
+
+                // One-time massive fireworks display
+                if (!window.fireworksLaunched) {
+                    window.fireworksLaunched = true;
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => {
+                            createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.7);
+                        }, i * 200);
+                    }
                 }
-                
+
                 return;
             }
 
@@ -347,4 +414,5 @@
         setInterval(updateCountdown, 1000);
     </script>
 </body>
+
 </html>
